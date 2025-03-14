@@ -1,5 +1,5 @@
 import unittest
-from src.trip import Trip
+from lab3.src.trip import Trip
 
 class TestTrip(unittest.TestCase):
 
@@ -8,7 +8,7 @@ class TestTrip(unittest.TestCase):
 
     def test_initialization(self):
         trip1 = Trip("Paris", 7)
-        self.assertEqual(trip1.desitination, "Paris")
+        self.assertEqual(trip1.destination, "Paris")
         self.assertEqual(trip1.duration, 7)
 
     def tearDown(self):
