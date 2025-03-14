@@ -25,8 +25,9 @@ class TestTrip(unittest.TestCase):
         self.assertIn("Alice", trip1.participants)
         trip1.add_participant("Bob")
         self.assertIn("Bob", trip1.participants)
-        with self.assertRaises(ValueError):
+        with self.assertRaises(ValueError) as context:
             trip1.add_participant("")
+        self.assertEqual(str(context.exception), "Participant name cannot be empty")
 
     def tearDown(self):
         pass
