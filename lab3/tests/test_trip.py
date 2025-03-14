@@ -21,6 +21,9 @@ class TestTrip(unittest.TestCase):
         trip1 = Trip("Paris", 7)
         trip1.add_participant("John")
         self.assertIn(self, "John", trip1.participants)
+        trip1.add_participant("Alice","Bob")
+        self.assertIn(self, "Alice", trip1.participants)
+        self.assertIn(self, "Bob", trip1.participants)
 
     def tearDown(self):
         pass
