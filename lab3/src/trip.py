@@ -9,4 +9,6 @@ class Trip:
         return self.duration * 100
 
     def add_participant(self, participant):
+        if participant == "":
+            raise ValueError("Participant name cannot be empty")
         self.participants.append(participant)
