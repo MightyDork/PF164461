@@ -36,3 +36,4 @@ class TestListUtils(unittest.TestCase):
 
     def test_calculate_average(self):
         self.assertEqual(self.list_utils.calculate_average([]),None)
+        self.assertEqual(self.list_utils.calculate_average([1,3,2]),2)
