@@ -1,5 +1,5 @@
 import unittest
-from src.utils import StringUtils, ListUtils
+from lab6.src.utils import StringUtils, ListUtils
 
 
 class TestStringUtils(unittest.TestCase):
@@ -16,6 +16,10 @@ class TestStringUtils(unittest.TestCase):
         self.assertEqual(self.string_utils.count_vowels("AEIOU"), 5)
         self.assertEqual(self.string_utils.count_vowels("xyz"), 0)
 
+    def test_is_palindrome(self):
+        result = self.string_utils.is_palindrome("164461")
+        self.assertTrue(result)
+
 class TestListUtils(unittest.TestCase):
     def setUp(self):
         self.list_utils = ListUtils()
@@ -29,3 +33,6 @@ class TestListUtils(unittest.TestCase):
         self.assertEqual(self.list_utils.find_min([1, 2, 3, 4, 5]), 1)
         self.assertEqual(self.list_utils.find_min([-5, -2, -10]), -10)
         self.assertIsNone(self.list_utils.find_min([]))
+
+    def test_calculate_average(self):
+        self.assertEqual(self.list_utils.calculate_average([]),None)
