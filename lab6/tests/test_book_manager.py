@@ -78,6 +78,7 @@ class TestBookManager(unittest.TestCase):
         self.manager.register_user("U001", "Alice Brown")
         self.manager.borrow_book("B001", "U001")
 
+
         # Test returning the book
         result = self.manager.return_book("B001", "U001")
         self.assertTrue(result)
@@ -90,6 +91,11 @@ class TestBookManager(unittest.TestCase):
 
         # Test returning with a non-existent user
         result = self.manager.return_book("B001", "U002")
+        self.assertFalse(result)
+
+        # Test returning a book the user doesn't have
+        self.manager.add_book("B002", "Extra Book", "John Python")
+        result = self.manager.return_book("B002", "U001")
         self.assertFalse(result)
 
     def test_get_available_books(self):
