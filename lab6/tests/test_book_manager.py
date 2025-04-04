@@ -155,3 +155,7 @@ class TestBookManager(unittest.TestCase):
         # Test searching with no results
         results = self.manager.search_books("C++")
         self.assertEqual(len(results), 0)
+
+        # Test empty search
+        results = self.manager.search_books("")
+        self.assertEqual(len(results), 0)
