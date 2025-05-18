@@ -153,4 +153,22 @@ class TestAccount(unittest.TestCase):
 
         with self.assertRaises(ValueError):
             acc.withdraw(-50)
-            
+
+    def test_freeze_nonpositive_amount(self):
+        acc = Account("700", "Tester", 100)
+
+        with self.assertRaises(ValueError):
+            acc.freeze_amount(0)
+
+        with self.assertRaises(ValueError):
+            acc.freeze_amount(-50)
+
+    def test_unfreeze_nonpositive_amount(self):
+        acc = Account("700", "Tester", 100)
+        acc.freeze_amount(50)  # Need some frozen amount first
+
+        with self.assertRaises(ValueError):
+            acc.unfreeze_amount(0)
+
+        with self.assertRaises(ValueError):
+            acc.unfreeze_amount(-30)
